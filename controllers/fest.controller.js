@@ -119,13 +119,13 @@ exports.updateFest = async (req, res) => {
                     festNumDay: parseInt(req.body.festNumDay),
                     festCost: parseFloat(req.body.festCost),
                     userID: parseInt(req.body.userID),
-                    festImage: req.file ? req.file.path.replace('Images\\festivals\\', '') : ''
+                    festImage: req.file.path.replace('Images\\festivals\\', '') 
                 },
             });
 
         } else {
             // แก้ไขข้อมูลแบบไม่มีการแก้ไขรูป
-            result = await prisma.user_tb.update({
+            result = await prisma.fest_tb.update({
                 where: {
                     festID: parseInt(req.params.festID)
                 },
